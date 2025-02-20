@@ -4,21 +4,21 @@
 # ------------------------------------------------------------
 
 # Kernel
-KERNEL_NAME="Bootlegger"
-KERNEL_GIT="https://github.com/silvzr/bootlegger_kernel_archive.git"
-KERNEL_BRANCH=""
+KERNEL_NAME="M325FV_KSU_Next"
+KERNEL_GIT="https://github.com/Samo141988/android_kernel_samsung_m32.git"
+KERNEL_BRANCH="Thirteen-Ksu-Next"
 
 # KernelSU
-KERNELSU_REPO="tiann/KernelSU"
-KSU_ENABLED="false"
+KERNELSU_REPO="Samo141988/KernelSU-Next"
+KSU_ENABLED="true"
 
 # Anykernel3
-ANYKERNEL3_GIT="https://github.com/silvzr/AnyKernel3.git"
-ANYKERNEL3_BRANCH="master"
+ANYKERNEL3_GIT="https://github.com/Samo141988/Anykernel3.git"
+ANYKERNEL3_BRANCH="Galaxy-m32-f22"
 
 # Build
-DEVICE_CODE="davinci"
-DEVICE_DEFCONFIG="davinci_defconfig"
+DEVICE_CODE="m32"
+DEVICE_DEFCONFIG="rsuntk_defconfig"
 COMMON_DEFCONFIG=""
 DEVICE_ARCH="arch/arm64"
 
@@ -95,7 +95,7 @@ IMAGE="$KERNEL_DIR/out/$DEVICE_ARCH/boot/Image.gz"
 DTB="$KERNEL_DIR/out/$DEVICE_ARCH/boot/dtb.img"
 DTBO="$KERNEL_DIR/out/$DEVICE_ARCH/boot/dtbo.img"
 
-export KBUILD_BUILD_USER=silvzr
+export KBUILD_BUILD_USER=Samo141988
 export KBUILD_BUILD_HOST=GitHubCI
 
 # Highlight
@@ -212,7 +212,7 @@ if [[ $KSU_ENABLED == "true" ]] && [[ ! -z "$KERNELSU_DIR" ]]; then
     sed -i "s/^CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION=\"-$KERNEL_BRANCH-$KERNEL_NAME-KSU\"/" $DEVICE_DEFCONFIG_FILE
 elif
    [[ $KSU_ENABLED == "true" ]]; then
-    cd $KERNEL_DIR && curl -LSs "https://raw.githubusercontent.com/$KERNELSU_REPO/main/kernel/setup.sh" | bash -s main
+    cd $KERNEL_DIR && curl -LSs "https://raw.githubusercontent.com/$KERNELSU_REPO/main/kernel/setup.sh" | bash -s next-susfs-5.4
     cd $WORKDIR
 
     if version_le "$KERNEL_VER" "5.9"; then
@@ -321,7 +321,7 @@ if [[ $KSU_ENABLED == "true" ]]; then
 else
   ZIP_NAME="$KERNEL_NAME-$KERNEL_VERSION-$KERNEL_BRANCH-NonKSU.zip"
 fi
-TIME=$(TZ='Europe/Berlin' date +"%Y-%m-%d %H:%M:%S")
+TIME=$(TZ='Asia/Damascus date +"%Y-%m-%d %H:%M:%S")
 find ./ * -exec touch -m -d "$TIME" {} \;
 zip -r9 $ZIP_NAME *
 cp *.zip $WORKDIR/out

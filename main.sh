@@ -92,10 +92,10 @@ fi
 
 DEVICE_DEFCONFIG_FILE="$KERNEL_DIR/$DEVICE_ARCH/configs/$DEVICE_DEFCONFIG"
 IMAGE="$KERNEL_DIR/out/$DEVICE_ARCH/boot/Image.gz"
-DTB="$KERNEL_DIR/out/$DEVICE_ARCH/boot/dtb.img"
+#DTB="$KERNEL_DIR/out/$DEVICE_ARCH/boot/dtb.img"
 DTBO="$KERNEL_DIR/out/$DEVICE_ARCH/boot/dtbo.img"
 
-export KBUILD_BUILD_USER=Samo141988
+export KBUILD_BUILD_USER=silvzr
 export KBUILD_BUILD_HOST=GitHubCI
 
 # Highlight
@@ -301,7 +301,7 @@ git clone --depth=1 $ANYKERNEL3_GIT -b $ANYKERNEL3_BRANCH $WORKDIR/Anykernel3
 cd $WORKDIR/Anykernel3
 AK3_DEVICE=$(grep -m 1 "device.name.*=$DEVICE_CODE" anykernel.sh | cut -d '=' -f 2)
 DEVICE_DEFCONFIG_CODE=$(basename $DEVICE_DEFCONFIG | cut -d '_' -f 1 | cut -d '-' -f 1)
-COMMON_DEFCONFIG_CODE=$(basename $COMMON_DEFCONFIG | cut -d '.' -f 1 | cut -d '-' -f 1)
+#COMMON_DEFCONFIG_CODE=$(basename $COMMON_DEFCONFIG | cut -d '.' -f 1 | cut -d '-' -f 1)
 if [[ $AK3_DEVICE != $DEVICE_CODE ]] && [[ $DEVICE_CODE == $DEVICE_DEFCONFIG_CODE || $DEVICE_CODE == $COMMON_DEFCONFIG_CODE ]]; then
     sed -i "s/device.name1=.*/device.name1=$DEVICE_CODE/" anykernel.sh
     sed -i "s/device.name2=.*/device.name2=/" anykernel.sh
@@ -311,7 +311,7 @@ if [[ $AK3_DEVICE != $DEVICE_CODE ]] && [[ $DEVICE_CODE == $DEVICE_DEFCONFIG_COD
     msg "Wrong AnyKernel3 repo detected! Trying to fix it..."
 fi
 cp $IMAGE .
-cp $DTB $WORKDIR/Anykernel3/dtb
+#cp $DTB $WORKDIR/Anykernel3/dtb
 cp $DTBO .
 
 # Archive

@@ -22,7 +22,7 @@ on:
       AnyKernel3_Git:
         required: true
         type: string
-        default: https://github.com/Samo141988/Anykernel3.git
+        default: https://github.com/Samo141988/AnyKernel3_.git
       Device_Code:
         required: true
         type: string

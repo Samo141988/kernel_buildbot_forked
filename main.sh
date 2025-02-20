@@ -321,7 +321,7 @@ if [[ $KSU_ENABLED == "true" ]]; then
 else
   ZIP_NAME="$KERNEL_NAME-$KERNEL_VERSION-$KERNEL_BRANCH-NonKSU.zip"
 fi
-TIME=$(TZ='Asia/Damascus date +"%Y-%m-%d %H:%M:%S")
+TIME=$(TZ='Asia/Damascus' date +"%Y-%m-%d %H:%M:%S")
 find ./ * -exec touch -m -d "$TIME" {} \;
 zip -r9 $ZIP_NAME *
 cp *.zip $WORKDIR/out

@@ -13,8 +13,8 @@ KERNELSU_REPO="Samo141988/KernelSU-Next"
 KSU_ENABLED="true"
 
 # Anykernel3
-ANYKERNEL3_GIT="https://github.com/Samo141988/Anykernel3.git"
-ANYKERNEL3_BRANCH="Galaxy-m32-f22"
+ANYKERNEL3_GIT="https://github.com/Samo141988/AnyKernel3_.git"
+ANYKERNEL3_BRANCH="master"
 
 # Build
 DEVICE_CODE="m32"

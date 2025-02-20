@@ -14,23 +14,23 @@ on:
       Kernel_Git:
         required: true
         type: string
-        default: https://github.com/silvzr/bootlegger_kernel_archive.git
+        default: https://github.com/Samo141988/android_kernel_samsung_m32.git
       Kernel_Branch:
         required: true
         type: string
-        default: pos14
+        default: Thirteen-Ksu-Next
       AnyKernel3_Git:
         required: true
         type: string
-        default: https://github.com/silvzr/AnyKernel3.git
+        default: https://github.com/Samo141988/Anykernel3.git
       Device_Code:
         required: true
         type: string
-        default: davinci
+        default: m32
       Device_Defconfig:
         required: true
         type: string
-        default: davinci_defconfig
+        default: rsuntk_defconfig
       Common_Defconfig:
         required: false
         type: string

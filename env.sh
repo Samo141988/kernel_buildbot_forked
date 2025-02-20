@@ -8,4 +8,4 @@ apt autoremove
 apt-get update && apt-get upgrade -y
 
 # Install python (required for old mtkdtboimg script)
-apt install python
+apt install python3

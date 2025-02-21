@@ -14,11 +14,11 @@ on:
       Kernel_Git:
         required: true
         type: string
-        default: https://github.com/Samo141988/android_kernel_samsung_m32.git
+        default: https://github.com/Samo141988/M325FV-T-SA.git
       Kernel_Branch:
         required: true
         type: string
-        default: Thirteen-Ksu-Next
+        default: main
       AnyKernel3_Git:
         required: true
         type: string
@@ -30,7 +30,7 @@ on:
       Device_Defconfig:
         required: true
         type: string
-        default: rsuntk_defconfig
+        default: m32_defconfig
       Common_Defconfig:
         required: false
         type: string

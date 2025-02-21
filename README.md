@@ -1,10 +1,9 @@
-# Bootlegger - Releases
+# M32 - Releases
 
-**For davinci | Mi 9T / Redmi K20**
+**For Galaxy M32**
 
 **Includes KernelSU variant**
 
-Please read following **[README](https://github.com/silvzr/bootlegger_kernel_archive/blob/master/README.md)**
 
 ## Custom Kernel
 - To build your own custom kernel, fork this repository

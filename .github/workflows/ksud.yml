@@ -23,7 +23,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        repository: Samo141988/KernelSU-Next
+        repository: Samo141988/KernelSU
         fetch-depth: 0
 
     - name: Download artifacts

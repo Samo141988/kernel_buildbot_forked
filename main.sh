@@ -9,7 +9,7 @@ KERNEL_GIT="https://github.com/Samo141988/M325FV-T-SA.git"
 KERNEL_BRANCH="main"
 
 # KernelSU
-KERNELSU_REPO="Samo141988/KernelSU"
+KERNELSU_REPO="tiann/KernelSU"
 KSU_ENABLED="true"
 
 # Anykernel3

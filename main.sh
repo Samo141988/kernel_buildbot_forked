@@ -70,11 +70,11 @@ fi
 # Set variables
 WORKDIR="$(pwd)"
 
-if [[ $CLANG_VERSION == "latest" ]]; then
-    CLANG_DLINK="$(curl -s https://api.github.com/repos/$CLANG_REPO/releases/latest | grep -wo "https.*" | grep Clang-.*.tar.gz | sed 's/.$//')"
-else 
-    CLANG_DLINK="$(curl -s https://github.com/ZyCromerZ/Clang/releases/download/13.0.1-20211126-release/Clang-13.0.1-20211126.tar.gz)"
-fi
+#if [[ $CLANG_VERSION == "latest" ]]; then
+ #   CLANG_DLINK="$(curl -s https://api.github.com/repos/$CLANG_REPO/releases/latest | grep -wo "https.*" | grep Clang-.*.tar.gz | sed 's/.$//')"
+#else 
+    # CLANG_DLINK="$(curl -s https://github.com/ZyCromerZ/Clang/releases/download/13.0.1-20211126-release/Clang-13.0.1-20211126.tar.gz)"
+#fi
 CLANG_DIR="$WORKDIR/Clang/bin"
 
 KERNEL_REPO="${KERNEL_GIT::-4}/"
@@ -112,7 +112,7 @@ msg "Setup"
 
 msg "Clang"
 mkdir -p Clang
-aria2c -s16 -x16 -k1M $CLANG_DLINK -o Clang.tar.gz
+aria2c https://github.com/ZyCromerZ/Clang/releases/download/13.0.1-20211126-release/Clang-13.0.1-20211126.tar.gz -o Clang.tar.gz
 tar -C Clang/ -zxvf Clang.tar.gz
 rm -rf Clang.tar.gz
 

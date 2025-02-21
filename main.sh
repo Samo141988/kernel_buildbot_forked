@@ -24,7 +24,7 @@ DEVICE_ARCH="arch/arm64"
 
 # Clang
 CLANG_REPO="ZyCromerZ/Clang"
-CLANG_VERSION="14"
+CLANG_VERSION="Clang-13.0.1-20211126-release"
 
 # ------------------------------------------------------------
 

@@ -112,9 +112,13 @@ msg "Setup"
 
 msg "Clang"
 mkdir -p Clang
-aria2c https://github.com/ZyCromerZ/Clang/releases/download/13.0.1-20211126-release/Clang-13.0.1-20211126.tar.gz -o Clang.tar.gz
-tar -C Clang/ -zxvf Clang.tar.gz
-rm -rf Clang.tar.gz
+#aria2c https://github.com/ZyCromerZ/Clang/releases/download/13.0.1-20211126-release/Clang-13.0.1-20211126.tar.gz -o Clang.tar.gz
+#tar -C Clang/ -zxvf Clang.tar.gz
+#rm -rf Clang.tar.gz
+
+git clone --single-branch --depth=1 https://github.com/rsuntk/toolchains.git -b clang-11 clang
+git clone --single-branch --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-gnu-6.4.1.git gnu
+ 
 
 CLANG_VERSION="$($CLANG_DIR/clang --version | head -n 1 | cut -f1 -d "(" | sed 's/.$//')"
 CLANG_VERSION=${CLANG_VERSION::-3} # May get removed later

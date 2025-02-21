@@ -6,7 +6,7 @@
 # Kernel
 KERNEL_NAME="M325FV_KSU_Next"
 KERNEL_GIT="https://github.com/Samo141988/android_kernel_samsung_m32.git"
-KERNEL_BRANCH="Thirteen-Ksu-Next"
+KERNEL_BRANCH="thirteen"
 
 # KernelSU
 KERNELSU_REPO="Samo141988/KernelSU"
@@ -24,7 +24,7 @@ DEVICE_ARCH="arch/arm64"
 
 # Clang
 CLANG_REPO="ZyCromerZ/Clang"
-CLANG_VERSION="latest"
+CLANG_VERSION="11"
 
 # ------------------------------------------------------------
 

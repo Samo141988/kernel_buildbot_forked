@@ -22,7 +22,7 @@ on:
         required: true
         type: string
       common_defconfig:
-        required: true
+        required: false
         type: string
       os:
         required: true
@@ -51,7 +51,7 @@ jobs:
         id: build
         run: |
             echo "Building ${{ inputs.include_ksu }}"
-            sudo bash main.sh ${{ inputs.include_ksu }} ${{ inputs.kernel_git }} ${{ inputs.kernel_branch }} ${{ inputs.anykernel3_git }} ${{ inputs.device_code }} ${{ inputs.device_defconfig }} ${{ inputs.common_defconfig }}
+            sudo bash main.sh ${{ inputs.include_ksu }} ${{ inputs.kernel_git }} ${{ inputs.kernel_branch }} ${{ inputs.anykernel3_git }} ${{ inputs.device_code }} ${{ inputs.device_defconfig }}
       - name: Prepare Upload
         id: prepare
         run: |

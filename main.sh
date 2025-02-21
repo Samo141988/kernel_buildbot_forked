@@ -216,7 +216,7 @@ if [[ $KSU_ENABLED == "true" ]] && [[ ! -z "$KERNELSU_DIR" ]]; then
     sed -i "s/^CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION=\"-$KERNEL_BRANCH-$KERNEL_NAME-KSU\"/" $DEVICE_DEFCONFIG_FILE
 elif
    [[ $KSU_ENABLED == "true" ]]; then
-    cd $KERNEL_DIR && curl -LSs "https://raw.githubusercontent.com/$KERNELSU_REPO/main/kernel/setup.sh" | bash -s
+    cd $KERNEL_DIR && curl -LSs "https://raw.githubusercontent.com/$KERNELSU_REPO/main/kernel/setup.sh" | bash -s main
     cd $WORKDIR
 
     if version_le "$KERNEL_VER" "5.9"; then
@@ -291,9 +291,9 @@ LLVM_IAS=1"
 
 rm -rf out
 make O=out $args $DEVICE_DEFCONFIG
-if [[ ! -z "$COMMON_DEFCONFIG" ]]; then
-  make O=out $args $COMMON_DEFCONFIG
-fi
+#if [[ ! -z "$COMMON_DEFCONFIG" ]]; then
+ # make O=out $args $COMMON_DEFCONFIG
+#fi
 make O=out $args kernelversion
 make O=out $args -j"$(nproc --all)"
 msg "Kernel version: $KERNEL_VERSION"
@@ -306,14 +306,14 @@ cd $WORKDIR/Anykernel3
 AK3_DEVICE=$(grep -m 1 "device.name.*=$DEVICE_CODE" anykernel.sh | cut -d '=' -f 2)
 DEVICE_DEFCONFIG_CODE=$(basename $DEVICE_DEFCONFIG | cut -d '_' -f 1 | cut -d '-' -f 1)
 #COMMON_DEFCONFIG_CODE=$(basename $COMMON_DEFCONFIG | cut -d '.' -f 1 | cut -d '-' -f 1)
-if [[ $AK3_DEVICE != $DEVICE_CODE ]] && [[ $DEVICE_CODE == $DEVICE_DEFCONFIG_CODE || $DEVICE_CODE == $COMMON_DEFCONFIG_CODE ]]; then
-    sed -i "s/device.name1=.*/device.name1=$DEVICE_CODE/" anykernel.sh
-    sed -i "s/device.name2=.*/device.name2=/" anykernel.sh
-    sed -i "s/device.name3=.*/device.name3=/" anykernel.sh
-    sed -i "s/device.name4=.*/device.name4=/" anykernel.sh
-    sed -i "s/device.name5=.*/device.name5=/" anykernel.sh
-    msg "Wrong AnyKernel3 repo detected! Trying to fix it..."
-fi
+#if [[ $AK3_DEVICE != $DEVICE_CODE ]] && [[ $DEVICE_CODE == $DEVICE_DEFCONFIG_CODE || $DEVICE_CODE == $COMMON_DEFCONFIG_CODE ]]; then
+  #  sed -i "s/device.name1=.*/device.name1=$DEVICE_CODE/" anykernel.sh
+    #sed -i "s/device.name2=.*/device.name2=/" anykernel.sh
+   # sed -i "s/device.name3=.*/device.name3=/" anykernel.sh
+   # sed -i "s/device.name4=.*/device.name4=/" anykernel.sh
+   # sed -i "s/device.name5=.*/device.name5=/" anykernel.sh
+  #  msg "Wrong AnyKernel3 repo detected! Trying to fix it..."
+#fi
 cp $IMAGE .
 #cp $DTB $WORKDIR/Anykernel3/dtb
 #cp $DTBO .

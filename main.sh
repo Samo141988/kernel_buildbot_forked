@@ -116,7 +116,7 @@ mkdir -p Clang
 #tar -C Clang/ -zxvf Clang.tar.gz
 #rm -rf Clang.tar.gz
 
-git clone --single-branch --depth=1 https://github.com/rsuntk/toolchains.git -b clang-11# clang
+git clone --single-branch --depth=1 https://github.com/rsuntk/toolchains.git -b clang-11
 git clone --single-branch --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-gnu-6.4.1.git gnu
  
 

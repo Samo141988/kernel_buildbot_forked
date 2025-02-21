@@ -121,7 +121,7 @@ git clone --single-branch --depth=1 https://github.com/LineageOS/android_prebuil
  
 
 CLANG_VERSION="$($CLANG_DIR/clang --version | head -n 1 | cut -f1 -d "(" | sed 's/.$//')"
-#CLANG_VERSION=${CLANG_VERSION::-3} # May get removed later
+CLANG_VERSION=${CLANG_VERSION::-3} # May get removed later
 LLD_VERSION="$($CLANG_DIR/ld.lld --version | head -n 1 | cut -f1 -d "(" | sed 's/.$//')"
 
 msg "Kernel"
@@ -216,7 +216,7 @@ if [[ $KSU_ENABLED == "true" ]] && [[ ! -z "$KERNELSU_DIR" ]]; then
     sed -i "s/^CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION=\"-$KERNEL_BRANCH-$KERNEL_NAME-KSU\"/" $DEVICE_DEFCONFIG_FILE
 elif
    [[ $KSU_ENABLED == "true" ]]; then
-    cd $KERNEL_DIR && curl -LSs "https://raw.githubusercontent.com/$KERNELSU_REPO/main/kernel/setup.sh" | bash -s main
+    cd $KERNEL_DIR && curl -LSs "https://raw.githubusercontent.com/$KERNELSU_REPO/main/kernel/setup.sh" | bash -s
     cd $WORKDIR
 
     if version_le "$KERNEL_VER" "5.9"; then

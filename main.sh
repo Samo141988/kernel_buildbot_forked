@@ -5,8 +5,8 @@
 
 # Kernel
 KERNEL_NAME="M325FV_KSU_Next"
-KERNEL_GIT="https://github.com/Samo141988/android_kernel_samsung_m32.git"
-KERNEL_BRANCH="thirteen"
+KERNEL_GIT="https://github.com/Samo141988/M325FV-T-SA.git"
+KERNEL_BRANCH="main"
 
 # KernelSU
 KERNELSU_REPO="Samo141988/KernelSU"
@@ -18,7 +18,7 @@ ANYKERNEL3_BRANCH="master"
 
 # Build
 DEVICE_CODE="m32"
-DEVICE_DEFCONFIG="rsuntk_defconfig"
+DEVICE_DEFCONFIG="m32_defconfig"
 COMMON_DEFCONFIG=""
 DEVICE_ARCH="arch/arm64"
 

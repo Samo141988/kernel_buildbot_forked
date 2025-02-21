@@ -24,7 +24,7 @@ DEVICE_ARCH="arch/arm64"
 
 # Clang
 CLANG_REPO="ZyCromerZ/Clang"
-CLANG_VERSION="Clang-11"
+CLANG_VERSION="lates"
 
 # ------------------------------------------------------------
 
@@ -111,13 +111,13 @@ cd $WORKDIR
 msg "Setup"
 
 msg "Clang"
-#mkdir -p Clang
-#aria2c https://github.com/ZyCromerZ/Clang/releases/download/13.0.1-20211126-release/Clang-13.0.1-20211126.tar.gz -o Clang.tar.gz
-#tar -C Clang/ -zxvf Clang.tar.gz
-#rm -rf Clang.tar.gz
+mkdir -p Clang
+aria2c -s16 -x16 -k1M  https://github.com/ZyCromerZ/Clang/releases/download/21.0.0git-20250221-release/Clang-21.0.0git-20250221.tar.gz -o Clang.tar.gz
+tar -C Clang/ -zxvf Clang.tar.gz
+rm -rf Clang.tar.gz
 
-git clone --single-branch --depth=1 https://github.com/rsuntk/toolchains.git -b clang-11 Clang
-git clone --single-branch --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-gnu-6.4.1.git gnu
+#git clone --single-branch --depth=1 https://github.com/rsuntk/toolchains.git -b clang-11 Clang
+#git clone --single-branch --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-gnu-6.4.1.git gnu
  
 
 CLANG_VERSION="$($CLANG_DIR/clang --version | head -n 1 | cut -f1 -d "(" | sed 's/.$//')"

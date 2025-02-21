@@ -93,7 +93,7 @@ fi
 DEVICE_DEFCONFIG_FILE="$KERNEL_DIR/$DEVICE_ARCH/configs/$DEVICE_DEFCONFIG"
 IMAGE="$KERNEL_DIR/out/$DEVICE_ARCH/boot/Image.gz"
 #DTB="$KERNEL_DIR/out/$DEVICE_ARCH/boot/dtb.img"
-DTBO="$KERNEL_DIR/out/$DEVICE_ARCH/boot/dtbo.img"
+#DTBO="$KERNEL_DIR/out/$DEVICE_ARCH/boot/dtbo.img"
 
 export KBUILD_BUILD_USER=silvzr
 export KBUILD_BUILD_HOST=GitHubCI
@@ -120,9 +120,9 @@ git clone --single-branch --depth=1 https://github.com/rsuntk/toolchains.git -b 
 git clone --single-branch --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-gnu-6.4.1.git gnu
  
 
-CLANG_VERSION="$($CLANG_DIR/clang --version | head -n 1 | cut -f1 -d "(" | sed 's/.$//')"
-CLANG_VERSION=${CLANG_VERSION::-3} # May get removed later
-LLD_VERSION="$($CLANG_DIR/ld.lld --version | head -n 1 | cut -f1 -d "(" | sed 's/.$//')"
+#CLANG_VERSION="$($CLANG_DIR/clang --version | head -n 1 | cut -f1 -d "(" | sed 's/.$//')"
+#CLANG_VERSION=${CLANG_VERSION::-3} # May get removed later
+#LLD_VERSION="$($CLANG_DIR/ld.lld --version | head -n 1 | cut -f1 -d "(" | sed 's/.$//')"
 
 msg "Kernel"
 git clone --depth=1 $KERNEL_GIT -b $KERNEL_BRANCH $KERNEL_DIR
@@ -216,7 +216,7 @@ if [[ $KSU_ENABLED == "true" ]] && [[ ! -z "$KERNELSU_DIR" ]]; then
     sed -i "s/^CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION=\"-$KERNEL_BRANCH-$KERNEL_NAME-KSU\"/" $DEVICE_DEFCONFIG_FILE
 elif
    [[ $KSU_ENABLED == "true" ]]; then
-    cd $KERNEL_DIR && curl -LSs "https://raw.githubusercontent.com/$KERNELSU_REPO/main/kernel/setup.sh" | bash -s next
+    cd $KERNEL_DIR && curl -LSs "https://raw.githubusercontent.com/$KERNELSU_REPO/main/kernel/setup.sh" | bash -s main
     cd $WORKDIR
 
     if version_le "$KERNEL_VER" "5.9"; then
@@ -316,7 +316,7 @@ if [[ $AK3_DEVICE != $DEVICE_CODE ]] && [[ $DEVICE_CODE == $DEVICE_DEFCONFIG_COD
 fi
 cp $IMAGE .
 #cp $DTB $WORKDIR/Anykernel3/dtb
-cp $DTBO .
+#cp $DTBO .
 
 # Archive
 mkdir -p $WORKDIR/out
